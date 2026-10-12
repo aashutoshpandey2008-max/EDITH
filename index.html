@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VISHWAKARMA · Robot Digital Twin</title>
+    <style>
+      html, body, #root { height: 100%; margin: 0; background: #020617; }
+      #boot { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; padding: 24px; box-sizing: border-box;
+              color: #bae6fd; font: 14px/1.6 ui-monospace, Menlo, Consolas, monospace; background: #020617; z-index: 99999; }
+      #boot div { max-width: 640px; }
+      #boot b { color: #22d3ee; } #boot code { background: #0f172a; padding: 1px 6px; border-radius: 4px; color: #fde68a; }
+      #boot pre { white-space: pre-wrap; color: #fca5a5; background: #1e0b0b; padding: 10px; border-radius: 6px; max-height: 40vh; overflow: auto; }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <div id="boot"><div>
+      <b>VISHWAKARMA · Robot Digital Twin</b><br />Loading…
+    </div></div>
+    <noscript>JavaScript is required.</noscript>
+    <script>
+      // Visible diagnostics instead of a blank page.
+      (function () {
+        var boot = document.getElementById('boot');
+        function show(html) { boot.style.display = 'flex'; boot.firstElementChild.innerHTML = html; }
+        window.__bootError = function (msg) { show('<b>Runtime error</b><pre>' + String(msg).replace(/</g, '&lt;') + '</pre>Open the browser console (F12) for details.'); };
+        window.addEventListener('error', function (e) { if (!window.__booted) window.__bootError(e.message + (e.filename ? '\n' + e.filename + ':' + e.lineno : '')); });
+        window.addEventListener('unhandledrejection', function (e) { if (!window.__booted) window.__bootError(e.reason && e.reason.stack || e.reason); });
+        setTimeout(function () {
+          if (!window.__booted && !window.__failed) show(
+            '<b>The app did not start.</b><br/><br/>This project is a <b>Vite + React</b> app: the browser cannot run <code>src/main.jsx</code> directly, ' +
+            'so opening <code>index.html</code> (or using Live Server on this folder) shows nothing.<br/><br/>' +
+            'In a terminal inside this folder run:<br/><code>npm install</code><br/><code>npm run dev</code><br/>' +
+            'then open the URL Vite prints (usually <code>http://localhost:5173</code>).<br/><br/>' +
+            'To use Live Server instead: <code>npm run build</code>, then open <code>dist/index.html</code> with Live Server.');
+        }, 2500);
+      })();
+    </script>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
